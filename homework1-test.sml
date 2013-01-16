@@ -52,3 +52,13 @@ val test_case17 = assert( dates_in_months([date1, date2, date3, date4], [11]), [
 val test_case18 = assert( dates_in_months([date1, date2, date3, date4], [12]), [date4])
 val test_case19 = assert( dates_in_months([date1, date2, date3, date4], [9, 10, 12]), [date1, date2, date3, date4])
 
+fun assert(result: string, expected: string) = 
+    result = expected
+
+val str1 = "amir"
+val str2 = "moulavi"
+val str3 = "sml"
+
+(* test cases for get_nth function *)
+val test_case20 = assert( get_nth([str1, str2, str3], 1), str1)
+val test_case21 = assert( get_nth([str1, str2, str3], 2), str2)

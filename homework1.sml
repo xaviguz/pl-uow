@@ -49,3 +49,10 @@ fun dates_in_months(dates: (int*int*int) list, months: int list) =
     if null dates orelse null months
     then []
     else dates_in_month(dates, hd months) @ dates_in_months(dates, tl months)
+
+(* should return the nth element of a list of strings *)
+
+fun get_nth(strings: string list, n: int) = 
+    if n = 1
+    then hd strings
+    else get_nth(tl strings, n - 1)
