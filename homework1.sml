@@ -7,6 +7,9 @@ fun monthOf(date: (int*int*int)) = #2 date
 
 fun dayOf(date: (int*int*int)) = #3 date
 
+
+(* should return true if date1 is older than date2 *)
+
 fun is_older(date1: (int*int*int), date2: (int*int*int)) =
     if date1 = date2 then false
     else if yearOf(date1) < yearOf(date2) then true
@@ -15,6 +18,8 @@ fun is_older(date1: (int*int*int), date2: (int*int*int)) =
     else if monthOf(date1) > monthOf(date2) then false
     else if dayOf(date1) < dayOf(date2) then true
     else false
+
+(* should return the number of matching dates with the given month *)
 
 fun number_in_month(dates: (int*int*int) list, month: int) = 
     if null (dates) orelse month < 0 
