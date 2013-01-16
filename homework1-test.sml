@@ -62,3 +62,8 @@ val str3 = "sml"
 (* test cases for get_nth function *)
 val test_case20 = assert( get_nth([str1, str2, str3], 1), str1)
 val test_case21 = assert( get_nth([str1, str2, str3], 2), str2)
+
+(* test cases for date_to_string function *)
+val test_case22 = assert( date_to_string((2012, 9, 12)), "September 12, 2012")
+val test_case23 = assert( date_to_string((2000, 1, 13)), "January 13, 2000")
+val test_case24 = assert( date_to_string((1998, 12, 30)), "December 30, 1998")
