@@ -7,7 +7,6 @@ fun monthOf(date: (int*int*int)) = #2 date
 
 fun dayOf(date: (int*int*int)) = #3 date
 
-
 (* should return true if date1 is older than date2 *)
 
 fun is_older(date1: (int*int*int), date2: (int*int*int)) =
@@ -43,3 +42,10 @@ fun dates_in_month(dates: (int*int*int) list, month: int) =
     else if monthOf(hd dates) = month
          then hd dates :: dates_in_month(tl dates, month)
 	 else dates_in_month(tl dates, month)
+
+(* should return list of dates that matches given months *)
+
+fun dates_in_months(dates: (int*int*int) list, months: int list) =
+    if null dates orelse null months
+    then []
+    else dates_in_month(dates, hd months) @ dates_in_months(dates, tl months)

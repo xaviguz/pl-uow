@@ -43,6 +43,12 @@ fun assert(dates1: (int*int*int) list, dates2: (int*int*int) list) =
 	 end
 
 (* test cases for dates_in_month function *)
-val test_case14 = assert( dates_in_month([date1, date2, date3, date4], 9), [(1982, 9, 21),(1982, 9, 29)])
+val test_case14 = assert( dates_in_month([date1, date2, date3, date4], 9), [date1, date2])
 val test_case15 = assert( dates_in_month([date1, date2, date3, date4], 11), [])
-val test_case16 = assert( dates_in_month([date1, date2, date3, date4], 12), [(2012, 12, 31)])
+val test_case16 = assert( dates_in_month([date1, date2, date3, date4], 12), [date4])
+
+(* test cases for dates_in_months function *)
+val test_case17 = assert( dates_in_months([date1, date2, date3, date4], [11]), [])
+val test_case18 = assert( dates_in_months([date1, date2, date3, date4], [12]), [date4])
+val test_case19 = assert( dates_in_months([date1, date2, date3, date4], [9, 10, 12]), [date1, date2, date3, date4])
+
