@@ -75,3 +75,8 @@ fun assert(result: int, expected: int) =
 val test_case25 = assert( number_before_reaching_sum(12, [10, 13, 10]), 2)
 val test_case26 = assert( number_before_reaching_sum(8, [10, 13, 10]), 1)
 val test_case27 = assert( number_before_reaching_sum(24, [10, 13, 10]), 3)
+
+(* test cases for what_month function *)
+val test_case28 = assert( what_month(45), 2)
+val test_case29 = assert( what_month(60), 3)
+val test_case30 = assert( what_month(364), 12)

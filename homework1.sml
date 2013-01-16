@@ -2,6 +2,7 @@
 (* PL course - Homework 1 *)
 
 val MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+val DAYS_IN_MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 fun yearOf(date: (int*int*int)) = #1 date
 
@@ -76,6 +77,10 @@ fun number_before_reaching_sum(sum: int, xs: int list) =
 	helper(1, 0, xs)
     end
 
+(* returns what month a day belongs *)
+
+fun what_month(day:int) =
+    number_before_reaching_sum(day, DAYS_IN_MONTHS)
 
 
 
