@@ -28,3 +28,21 @@ val test_case10 = assert( number_in_months([date1, date2, date3, date4], [9, 10]
 val test_case11 = assert( number_in_months([date1, date2, date3, date4], [12, 10]), 2 )
 val test_case12 = assert( number_in_months([date1, date2, date3, date4], [6]), 0 )
 val test_case13 = assert( number_in_months([date1, date2, date3, date4], []), 0 )
+
+fun assert(dates1: (int*int*int) list, dates2: (int*int*int) list) = 
+    if null dates1 andalso null dates2
+    then true
+    else if null dates1 andalso not (null dates2)
+    then false
+    else if not (null dates1) andalso null dates2
+    then true
+    else let val equalElem = if hd dates1 = hd dates2 then true else false in
+	     if equalElem 
+	     then assert(tl dates1, tl dates2)
+	     else false
+	 end
+
+(* test cases for dates_in_month function *)
+val test_case14 = assert( dates_in_month([date1, date2, date3, date4], 9), [(1982, 9, 21),(1982, 9, 29)])
+val test_case15 = assert( dates_in_month([date1, date2, date3, date4], 11), [])
+val test_case16 = assert( dates_in_month([date1, date2, date3, date4], 12), [(2012, 12, 31)])

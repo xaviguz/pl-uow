@@ -34,3 +34,12 @@ fun number_in_months(dates: (int*int*int) list, months: int list) =
     if null months
     then 0
     else number_in_month(dates, hd months) + number_in_months(dates, tl months)
+
+(* should return list of dates that matches a given month *)
+
+fun dates_in_month(dates: (int*int*int) list, month: int) =
+    if null dates orelse month < 0
+    then []
+    else if monthOf(hd dates) = month
+         then hd dates :: dates_in_month(tl dates, month)
+	 else dates_in_month(tl dates, month)
