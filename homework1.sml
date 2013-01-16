@@ -63,3 +63,27 @@ fun get_nth(strings: string list, n: int) =
 
 fun date_to_string(date: (int*int*int)) =
     get_nth(MONTHS, monthOf(date)) ^ " " ^ Int.toString(dayOf(date)) ^ ", " ^ Int.toString(yearOf(date))
+
+(* returns the index of the 'n'th element of the list such that the sum of first 'n+1' element is greater than 'sum' *)
+
+fun number_before_reaching_sum(sum: int, xs: int list) =
+    let 
+	fun helper(index: int, acc_sum: int, xss: int list) = 
+	    if acc_sum + hd xss > sum
+	    then index
+	    else helper(index + 1, acc_sum + hd xss, tl xss)
+    in 
+	helper(1, 0, xs)
+    end
+
+
+
+
+
+
+
+
+
+
+
+
