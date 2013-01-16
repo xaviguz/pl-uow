@@ -23,3 +23,8 @@ val test_case7 = assert( number_in_month([date1, date2, date3, date4], 12), 1 )
 val test_case8 = assert( number_in_month([], 9), 0 )
 val test_case9 = assert( number_in_month([date1, date2, date3, date4], ~9), 0 )
 
+(* test cases for number_in_months function *)
+val test_case10 = assert( number_in_months([date1, date2, date3, date4], [9, 10]), 3 )
+val test_case11 = assert( number_in_months([date1, date2, date3, date4], [12, 10]), 2 )
+val test_case12 = assert( number_in_months([date1, date2, date3, date4], [6]), 0 )
+val test_case13 = assert( number_in_months([date1, date2, date3, date4], []), 0 )
