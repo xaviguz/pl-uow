@@ -98,3 +98,11 @@ fun assert(xs1: int list, xs2: int list) =
 (* test cases for month_range function *)
 val test_case31 = assert( month_range(45, 46), [2, 2])
 val test_case32 = assert( month_range(58, 60), [2, 2, 3])
+
+fun assert(result: (int*int*int) option, expected: (int*int*int) option) =
+    result = expected
+
+(* test cases for oldest function *)
+val test_case33 = assert( oldest([date1, date2, date3, date4]), SOME(date3) )
+val test_case34 = assert( oldest([date1, date2, date4]), SOME(date1) )
+val test_case35 = assert( oldest([]), NONE )

@@ -89,8 +89,24 @@ fun month_range(day1: int, day2: int) =
     then []
     else what_month(day1) :: month_range(day1 + 1, day2)
     
+(* returns the oldest dates *)
 
-
+fun oldest( dates: (int*int*int) list) = 
+    if null dates
+    then NONE
+    else
+	let
+	    fun find_oldest(current_element: (int*int*int), dates: (int*int*int) list) =
+		if null dates
+		then current_element
+		else
+		    if is_older(current_element, hd dates)
+		    then find_oldest(current_element, tl dates)
+		    else find_oldest(hd dates, tl dates)
+	in
+	    SOME (find_oldest(hd dates, tl dates))
+	end
+		
 
 
 
