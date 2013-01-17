@@ -58,12 +58,12 @@ fun number_before_reaching_sum(sum: int, xs: int list) =
 	    if acc_sum + hd xss >= sum then index
 	    else helper(index + 1, acc_sum + hd xss, tl xss)
     in 
-	helper(1, 0, xs)
+	helper(0, 0, xs)
     end
 
 (* P9 - returns what month a day belongs *)
 fun what_month(day:int) =
-    number_before_reaching_sum(day, DAYS_IN_MONTHS)
+    number_before_reaching_sum(day, DAYS_IN_MONTHS) + 1
 
 (* P10 - returns months that are within [day1, day2] *)
 fun month_range(day1: int, day2: int) = 
