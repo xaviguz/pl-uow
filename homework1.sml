@@ -70,7 +70,7 @@ fun date_to_string(date: (int*int*int)) =
 fun number_before_reaching_sum(sum: int, xs: int list) =
     let 
 	fun helper(index: int, acc_sum: int, xss: int list) = 
-	    if acc_sum + hd xss > sum
+	    if acc_sum + hd xss >= sum
 	    then index
 	    else helper(index + 1, acc_sum + hd xss, tl xss)
     in 
@@ -82,6 +82,13 @@ fun number_before_reaching_sum(sum: int, xs: int list) =
 fun what_month(day:int) =
     number_before_reaching_sum(day, DAYS_IN_MONTHS)
 
+(* returns months that are within [day1, day2] *)
+
+fun month_range(day1: int, day2: int) = 
+    if day1 > day2
+    then []
+    else what_month(day1) :: month_range(day1 + 1, day2)
+    
 
 
 

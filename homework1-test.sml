@@ -80,3 +80,21 @@ val test_case27 = assert( number_before_reaching_sum(24, [10, 13, 10]), 3)
 val test_case28 = assert( what_month(45), 2)
 val test_case29 = assert( what_month(60), 3)
 val test_case30 = assert( what_month(364), 12)
+val test_case29_2 = assert( what_month(59), 2)
+
+fun assert(xs1: int list, xs2: int list) = 
+    if null xs1 andalso null xs2
+    then true
+    else if null xs1 andalso not (null xs2)
+    then false
+    else if not (null xs1) andalso null xs2
+    then true
+    else let val equalElem = if hd xs1 = hd xs2 then true else false in
+	     if equalElem 
+	     then assert(tl xs1, tl xs2)
+	     else false
+	 end
+
+(* test cases for month_range function *)
+val test_case31 = assert( month_range(45, 46), [2, 2])
+val test_case32 = assert( month_range(58, 60), [2, 2, 3])
